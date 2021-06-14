@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+    font-size: 4em;
+    font-family: fantasy;
+    padding-top: 0.5em;
+}
+
+.list-group{
+    align-items: center;
+}
+
+.list-group-item{
+    color: azure;
+    background-color: dimgray;
+    border-color: firebrick;
+    
+    text-align: center;
+    font-size: 30px;
+    width: 300px;
+}
+
+button{
+    width: 10em;
+}
