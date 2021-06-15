@@ -16,60 +16,85 @@
 <body>
     <h1>Area 1: The Pit</h1>
 
-    <p></p>
-    
-    <!-- CENTER of room selection -->
-    <div class="list-group" id="centerSelect">
-        <button type="button" onclick="clickNorth()" class="list-group-item list-group-item-action">North Wall</button>
-        <button type="button" onclick="clickSouth()" class="list-group-item list-group-item-action">South Wall</button>
-        <button type="button" onclick="clickEast()" class="list-group-item list-group-item-action">East Wall</button>
-        <button type="button" onclick="clickWest()" class="list-group-item list-group-item-action">West Wall</button>
-        <button type="button" onclick="clickLift()" class="list-group-item list-group-item-action">Lift</button>
-    </div>
-    
-    <!-- NORTH of room selection -->
-    <div class="list-group" id="northSelect" style="display: none">
-        <button type="button" onclick="" class="list-group-item list-group-item-action">north</button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
-    </div>
-    
-    <!-- SOUTH of room selection -->
-    <div class="list-group" id="southSelect" style="display: none">
-        <button type="button" onclick="" class="list-group-item list-group-item-action">south</button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
-    </div>
-    
-    <!-- EAST of room selection -->
-    <div class="list-group" id="eastSelect" style="display: none">
-        <button type="button" onclick="" class="list-group-item list-group-item-action">east</button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
-    </div>
-    
-    <!-- WEST of room selection -->
-    <div class="list-group" id="westSelect" style="display: none">
-        <button type="button" onclick="" class="list-group-item list-group-item-action">west</button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
-    </div>
-    
-    <!-- LIFT selection -->
-    <div class="list-group" id="lift" style="display: none">
-        <button type="button" onclick="" class="list-group-item list-group-item-action">lift</button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="" class="list-group-item list-group-item-action"></button>
-        <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
+    <p id="desc">Main Area</p>
+
+    <div class="container">
+        
+        <!-- FIRST ROW OF CONTENT -->
+        <div class="row">
+            <div class="col"></div>
+            
+            <div class="col">
+                <!-- CENTER of room selection -->
+                <div class="list-group" id="centerSelect">
+                    <button type="button" onclick="clickNorth()" class="list-group-item list-group-item-action">North Wall</button>
+                    <button type="button" onclick="clickSouth()" class="list-group-item list-group-item-action">South Wall</button>
+                    <button type="button" onclick="clickEast()" class="list-group-item list-group-item-action">East Wall</button>
+                    <button type="button" onclick="clickWest()" class="list-group-item list-group-item-action">West Wall</button>
+                    <button type="button" onclick="clickLift()" class="list-group-item list-group-item-action">Lift</button>
+                </div>
+
+                <!-- NORTH of room selection -->
+                <div class="list-group" id="northSelect" style="display: none">
+                    <button type="button" onclick="n1()" class="list-group-item list-group-item-action">n1</button>
+                    <button type="button" onclick="n2()" class="list-group-item list-group-item-action">n2</button>
+                    <button type="button" onclick="n3()" class="list-group-item list-group-item-action">n3</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
+                </div>
+
+                <!-- SOUTH of room selection -->
+                <div class="list-group" id="southSelect" style="display: none">
+                    <button type="button" onclick="s1()" class="list-group-item list-group-item-action">s1</button>
+                    <button type="button" onclick="s2()" class="list-group-item list-group-item-action">s2</button>
+                    <button type="button" onclick="s3()" class="list-group-item list-group-item-action">s3</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
+                </div>
+
+                <!-- EAST of room selection -->
+                <div class="list-group" id="eastSelect" style="display: none">
+                    <button type="button" onclick="e1()" class="list-group-item list-group-item-action">e1</button>
+                    <button type="button" onclick="e2()" class="list-group-item list-group-item-action">e2</button>
+                    <button type="button" onclick="e3()" class="list-group-item list-group-item-action">e3</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
+                </div>
+
+                <!-- WEST of room selection -->
+                <div class="list-group" id="westSelect" style="display: none">
+                    <button type="button" onclick="w1()" class="list-group-item list-group-item-action">w1</button>
+                    <button type="button" onclick="w2()" class="list-group-item list-group-item-action">w2</button>
+                    <button type="button" onclick="w3()" class="list-group-item list-group-item-action">w3</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
+                </div>
+
+                <!-- LIFT selection -->
+                <div class="list-group" id="lift" style="display: none">
+                    <button type="button" onclick="l1()" class="list-group-item list-group-item-action">l1</button>
+                    <button type="button" onclick="l2()" class="list-group-item list-group-item-action">l2</button>
+                    <button type="button" onclick="l3()" class="list-group-item list-group-item-action">l3</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
+                </div>
+            </div>
+            
+            <div class="col"></div>
+        </div>
+        
+        <!-- SECOND ROW OF CONTENT -->
+        <div class="row">
+            <div class="col"></div>
+            
+            <div class="col"></div>
+            
+            <div class="col"></div>
+        </div>
+
     </div>
 
     <script>
-        
-        function clickCenter(){
+        var description = document.getElementById("desc");
+
+        function clickCenter() {
+            description.innerHTML = "Main Area";
+
             document.getElementById("centerSelect").style.display = "block";
             document.getElementById("northSelect").style.display = "none";
             document.getElementById("southSelect").style.display = "none";
@@ -77,43 +102,99 @@
             document.getElementById("westSelect").style.display = "none";
             document.getElementById("lift").style.display = "none";
         }
-        
-        //CENTER SCRIPTS
-        function clickNorth(){
-            document.getElementById("centerSelect").style.display = "none";
+
+        //CENTER SCRIPTS-------------------
+        function clickNorth() {
+            document.getElementById("centerSelect").style.display = "none"
             document.getElementById("northSelect").style.display = "block";
         }
-        function clickSouth(){
+
+        function clickSouth() {
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("southSelect").style.display = "block";
         }
-        function clickEast(){
+
+        function clickEast() {
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("eastSelect").style.display = "block";
         }
-        function clickWest(){
+
+        function clickWest() {
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("westSelect").style.display = "block";
         }
-        function clickLift(){
+
+        function clickLift() {
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("lift").style.display = "block";
         }
-        
-        //NORTH SCRIPTS
-        
-        //SOUTH SCRIPTS
-        
-        //EAST SCRIPTS
-        
-        //WEST SCRIPTS
-        
-        //LIFT SCRIPTS
-    
+
+        //NORTH SCRIPTS-------------------
+        function n1() {
+            description.innerHTML = "N1";
+        }
+
+        function n2() {
+            description.innerHTML = "N2";
+        }
+
+        function n3() {
+            description.innerHTML = "N3";
+        }
+
+        //SOUTH SCRIPTS-------------------
+        function s1() {
+            description.innerHTML = "S1";
+        }
+
+        function s2() {
+            description.innerHTML = "S2";
+        }
+
+        function s3() {
+            description.innerHTML = "S3";
+        }
+
+        //EAST SCRIPTS-------------------
+        function e1() {
+            description.innerHTML = "E1";
+        }
+
+        function e2() {
+            description.innerHTML = "E2";
+        }
+
+        function e3() {
+            description.innerHTML = "E3";
+        }
+
+        //WEST SCRIPTS-------------------
+        function w1() {
+            description.innerHTML = "W1";
+        }
+
+        function w2() {
+            description.innerHTML = "W2";
+        }
+
+        function w3() {
+            description.innerHTML = "W3";
+        }
+
+        //LIFT SCRIPTS-------------------
+        function l1() {
+            description.innerHTML = "L1";
+        }
+
+        function l2() {
+            description.innerHTML = "L2";
+        }
+
+        function l3() {
+            description.innerHTML = "L3";
+        }
     </script>
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-</body>
-
-</html>
+</body></html>
