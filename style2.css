@@ -1,19 +1,29 @@
+body{
+    font-family: fantasy;
+}
+
 h1 {
     text-align: center;
     font-size: 4em;
-    font-family: fantasy;
     padding-top: 0.5em;
 }
 
 p{
+    font-family: sans-serif;
     text-align: center;
 }
 
-/*
-.container{
-    background-color: red;
+.btn{
+    border-color: firebrick;
+    background-color: dimgray;
+    color: azure;
 }
-*/
+
+.form-control{
+    height: 75px;
+    border-color: firebrick;
+    font-size: 20px;
+}
 
 .list-group-item{
     color: azure;
@@ -25,6 +35,22 @@ p{
     width: 350px;
 }
 
-button{
+.btn-1{
+    border-color: firebrick;
+    background-color: dimgray;
+    color: azure;
     width: 10em;
+}
+
+.btn-2{
+    border-color: firebrick;
+    background-color: dimgray;
+    color: azure;
+    width: 350px;
+    height: 75px;
+}
+
+a{
+    font-size: 1.5em;
+    color: azure;
 }

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="style2.css">
+
+    <title>Escape The Madman!</title>
+</head>
+
+<body id="body">
+    <h1>AREA 2 - Offices</h1>
+
+    <div class="container">
+        <p id="desc">You get to the top of the Lift and walk through the only door. On the other side of the door you find yourself standing in a ruined hallway. There are four office doors, two on each side of the hall and each door seems newer than the last, and one metal door at the end with an exit sign directly above it. You're about to make a mad dash for it when.
+            <br><br>
+            "It looks like you made it out of that pit just fine, keeping calm eh? Well we'll see how long that lasts. A word of warning don't get to close of a look at things." The madman's voice cuts out after his warning.
+        </p>
+
+        <!-- FIRST ROW OF CONTENT -->
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col">
+                <!-- CENTER of room selection -->
+                <div class="list-group" id="centerSelect">
+                    <button type="button" onclick="clickNorth()" class="list-group-item list-group-item-action">Office 1</button>
+                    <button type="button" onclick="clickSouth()" class="list-group-item list-group-item-action">Office 2</button>
+                    <button type="button" onclick="clickEast()" class="list-group-item list-group-item-action">Office 3</button>
+                    <button type="button" onclick="clickWest()" class="list-group-item list-group-item-action">Office 4</button>
+                    <button type="button" onclick="clickExit()" class="list-group-item list-group-item-action">EXIT</button>
+                </div>
+
+                <!-- NORTH of room selection -->
+                <div class="list-group" id="northSelect" style="display: none">
+                    <button type="button" onclick="n1()" class="list-group-item list-group-item-action">Look Out Window</button>
+                    <button type="button" onclick="n2()" class="list-group-item list-group-item-action">Inspect Desk</button>
+                    <button type="button" onclick="n3()" class="list-group-item list-group-item-action">Inspect Papers</button>
+                    <button type="button" onclick="n4()" class="list-group-item list-group-item-action">Inspect Filing Cabinets</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
+                </div>
+
+                <!-- SOUTH of room selection -->
+                <div class="list-group" id="southSelect" style="display: none">
+                    <button type="button" onclick="s1()" class="list-group-item list-group-item-action">Look Out Window</button>
+                    <button type="button" onclick="s2()" class="list-group-item list-group-item-action">Inspect Desk</button>
+                    <button type="button" onclick="s3()" class="list-group-item list-group-item-action">Inspect Papers</button>
+                    <button type="button" onclick="s4()" class="list-group-item list-group-item-action">Inspect Filing Cabinets</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
+                </div>
+
+                <!-- EAST of room selection -->
+                <div class="list-group" id="eastSelect" style="display: none">
+                    <button type="button" onclick="e1()" class="list-group-item list-group-item-action">Look Out Window</button>
+                    <button type="button" onclick="e2()" class="list-group-item list-group-item-action">Inspect Desk</button>
+                    <button type="button" onclick="e3()" class="list-group-item list-group-item-action">Inspect Filing Cabinets</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
+                </div>
+                
+                <!-- WEST of room selection -->
+                <div class="list-group" id="westSelect" style="display: none">
+                    <button type="button" onclick="w1()" class="list-group-item list-group-item-action">Look Out Window</button>
+                    <button type="button" onclick="w2()" class="list-group-item list-group-item-action">Inspect Desk</button>
+                    <button id="w3" type="button" onclick="w3()" class="list-group-item list-group-item-action">Use Computer</button>
+                    <button type="button" onclick="w4()" class="list-group-item list-group-item-action">Inspect Filing Cabinets</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
+                </div>
+                
+                <!-- DEATH selection -->
+                <div class="list-group" id="restartSelect" style="display: none">
+                    <button class="btn-2" id="exitBtn"><a class="nav-link" href="home.html">Restart</a></button>
+                </div>
+
+                <!-- EXIT selection -->
+                <div class="list-group" id="exit" style="display: none">
+                    <button type="button" onclick="l1()" class="list-group-item list-group-item-action">E1</button>
+                    <button type="button" onclick="l2()" class="list-group-item list-group-item-action">E2</button>
+                    <button type="button" onclick="l3()" class="list-group-item list-group-item-action">E3</button>
+
+                    <div class="input-group mb-3">
+                        <input id="keyInput" type="text" class="form-control" placeholder="ex: 123" aria-label="key-input" aria-describedby="button-addon2">
+                        <button class="btn-1" type="button" id="button-addon2" onclick="keypad()">Submit</button>
+                    </div>
+                    
+                    <button class="btn-2" id="exitBtn"><a class="nav-link" href="area2.html">Enter Next Area</a></button>
+
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Go Back</button>
+                </div>
+            </div>
+
+            <div class="col"></div>
+        </div>
+
+        <!-- SECOND ROW OF CONTENT -->
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col"></div>
+
+            <div class="col"></div>
+        </div>
+
+    </div>
+
+    <script>
+        var description = document.getElementById("desc");
+
+        var digit_1 = Math.floor(Math.random() * 10);
+        var digit_2 = Math.floor(Math.random() * 10);
+        var digit_3 = Math.floor(Math.random() * 10);
+        
+        var from1 = false;
+        var from2 = false;
+        var from3 = false;
+        var from4 = false;
+        
+        var windowSafe = false;
+
+        function clickCenter() {
+            if(from1 == true){
+                description.innerHTML = "You make your way back out into the Hallway that looks completed ruined like when you first entered this area. There are Four office doors to choose from, each door seems somehow newer than the last. There is also one metal door at the end of the hallway with an Exit sign above it.";
+                
+                from1 = false;
+            }
+            else if(from2 == true){
+                description.innerHTML = "When you walk back into the hallway the place seems somehow less of a reck then when you first came here. There are Four office doors to choose from, each door seems somehow newer than the last. There is also one metal door at the end of the hallway with an Exit sign above it.";
+                
+                from2 = false;
+            }
+            else if(from3 == true){
+                description.innerHTML = "You come back to the hallway after and now the building looks like everything was just closed down no more than a year or two ago. There are Four office doors to choose from, each door seems somehow newer than the last. There is also one metal door at the end of the hallway with an Exit sign above it.";
+                
+                from3 = false;
+            }
+            else if(from4 == true){
+                description.innerHTML = "When you leave the office everything looks like this place is still working properly and is maintained regularly and isn't abandoned. There are Four office doors to choose from, each door seems somehow newer than the last. There is also one metal door at the end of the hallway with an Exit sign above it.";
+                
+                from4 = false;
+            }
+            else{
+                description.innerHTML = "You turn around and head back down the hall to look around some more. There are Four office doors to choose from, each door seems somehow newer than the last. There is also one metal door at the end of the hallway with an Exit sign above it.";
+            }
+
+            document.getElementById("centerSelect").style.display = "block";
+            document.getElementById("northSelect").style.display = "none";
+            document.getElementById("southSelect").style.display = "none";
+            document.getElementById("eastSelect").style.display = "none";
+            document.getElementById("westSelect").style.display = "none";
+            document.getElementById("exit").style.display = "none";
+        }
+
+        //CENTER SCRIPTS-------------------
+        function clickNorth() {
+            description.innerHTML = "You enter the Office that seems to be in comeplete ruins. There are papers scatered all around the office. Broken windows that is letting cold air blow in and for a moment you saw a shadow and loud flapping, what was that?. A rotted desk thats caved in letting the computer on fall and break. And some broken filing cabinets against the wall.";
+            document.getElementById("centerSelect").style.display = "none"
+            document.getElementById("northSelect").style.display = "block";
+            from1 = true;
+        }
+
+        function clickSouth() {
+            description.innerHTML = "You enter the Office that is a complete mess with some papers scatered all over the floor. A broken desk with a broken computer. A window that has the sand blasted glass. And filling cabinets that are busted open against the wall.";
+            document.getElementById("centerSelect").style.display = "none";
+            document.getElementById("southSelect").style.display = "block";
+            from2 = true;
+        }
+
+        function clickEast() {
+            description.innerHTML = "You walk into the abandoned office. The most noticable thing is the thick layer of dust on everything. There is an old wooden desk with e computer on top of it. A window with sand blasted glass. And a line of filing cabinets against along the wall.";
+            document.getElementById("centerSelect").style.display = "none";
+            document.getElementById("eastSelect").style.display = "block";
+            from3 = true;
+        }
+        
+        function clickWest() {
+            description.innerHTML = "You enter the Office that actually seems like a normal one. The lights work, and everything is lean and intact. There is a wooden desk with a computer on it, sand blasted windows, and a line of filing cabinets against the wall.";
+            document.getElementById("centerSelect").style.display = "none";
+            document.getElementById("westSelect").style.display = "block";
+            from4 = true;
+        }
+
+        function clickExit() {
+            description.innerHTML = "You walk down the hall and standing in front of the metal door. There is a key pad with another sticky note. 'Same as before'. How original.";
+            document.getElementById("centerSelect").style.display = "none";
+            document.getElementById("exit").style.display = "block";
+            document.getElementById("exitBtn").style.display = "none";
+        }
+
+        //NORTH SCRIPTS------ROOM1-------------
+        function n1() {
+            if(windowSafe == false){
+                description.innerHTML = "You deside to get closer to the window to try and look outside of it. You look across the way and notice something etched into the tree but you can't quiet... As you try looking closer by sticking your head out the window something grabs onto you pulling you out of the window. Not long into your struggle your dropped. Sadly for you were to high up. Next time don't stick your head out a window when something you don't know about is flying around.";
+                
+                document.getElementById("desc").style.color = "white";
+                document.getElementById("body").style.backgroundColor = "red";
+                document.getElementById("northSelect").style.display = "none";
+                document.getElementById("restartSelect").style.display = "block";
+            }
+            else if(windowSafe == true){
+                description.innerHTML = "You use the binoculars you picked up and look through the broken window, at the other side of the courtyard there is a dead tree. But high up it looks like something is cut into it. xx" + digit_3 + ", after you find the number something large flys past your vision and you hear a loud screach. Maybe don't investigate that.";
+            }
+        }
+
+        function n2() {
+            description.innerHTML = "After making your way around this mess of a room you check out the desk. There is nothing of real note other than anything that was on this desk is broken or unreadable like that marking etched into the desk thats faded. But there is a pair of good binoculars laying. You pick them up for later.";
+            
+            windowSafe = true;
+        }
+
+        function n3() {
+            description.innerHTML = "You start checking out some of the papers that are scattered around but every word on all of them has faded since they've been exposed to the elements. You won't find anyting from these right now.";
+        }
+        
+        function n4() {
+            description.innerHTML = "The filing cabinets are rusted to the point some of the drawers fell out. This is probably where the papers came from.";
+        }
+
+        //SOUTH SCRIPTS------ROOM2-------------
+        function s1() {
+            description.innerHTML = "You try looking out the the window but it is vain because the glass being sand blasted. And you would prefer not putting your hands on the rusted window seal to avoid getting Tetanus.";
+        }
+
+        function s2() {
+            description.innerHTML = "You look around the destroyed desk, but to no avail the only thing that is worth taking would be a pair of binoculars. The problem is where could you possibly use them?";
+        }
+
+        function s3() {
+            description.innerHTML = "You grab some of the papers off the floor and skim them before finding one that stands out due to it's labeling. 'I finally made some progress with restoring memories but now they want to shut us down?!, If they won't provide me with the funds I'll get the research material myself.' At the top of the paper you see a name and date but they're faded somewhat, and a part of a number below them. '" + digit_1 + "xx'";
+        }
+        
+        function s4() {
+            description.innerHTML = "The filing cabinet seems mostly intact except for the fact that the drawer is wide open and the locks are rusted and broken explaing why they're wide open. There are still some files inside but there isn't really anything that stands out.";
+        }
+
+        //EAST SCRIPTS-------ROOM3------------
+        function e1() {
+            description.innerHTML = "R3-1";
+        }
+
+        function e2() {
+            description.innerHTML = "R3-2";
+        }
+
+        function e3() {
+            description.innerHTML = "R3-3";
+        }
+        
+        //WEST SCRIPTS-------ROOM4------------
+        function w1() {
+            description.innerHTML = "R4-1";
+        }
+
+        function w2() {
+            description.innerHTML = "R4-2";
+        }
+
+        function w3() {
+            description.innerHTML = "R4-3";
+        }
+        
+        function w4() {
+            description.innerHTML = "R4-4";
+        }
+
+        //EXIT SCRIPTS-------EXIT------------
+        function l1() {
+            description.innerHTML = "E1";
+        }
+
+        function l2() {
+            description.innerHTML = "E2";
+        }
+
+        function l3() {
+            description.innerHTML = digit_1 + "" + digit_2 + "" + digit_3;
+        }
+
+        function keypad() {
+            var keyInput = document.getElementById("keyInput").value;
+
+            if (keyInput == digit_1 + "" + digit_2 + "" + digit_3) {
+                description.innerHTML = "SUCCESS";
+                document.getElementById("exitBtn").style.display = "block";
+            } else {
+                description.innerHTML = "FAIL";
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+</html>

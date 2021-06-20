@@ -16,74 +16,79 @@
 <body>
     <h1>Area 1: The Pit</h1>
 
-    <p id="desc">Main Area</p>
-
     <div class="container">
+        <p id="desc">You find yourself waking up on the floor of some sort of pit meant to look like some sort of lab. The first thing you see is a
+            wall of file cabinets, then a window that has a bright light coming from it, and a desk on the another side of you. But the most important
+            thing you notice is the lift that goes to the next level and seems to be the only exit.
+            <br><br>
+            A loud voice  of a man comes over the speaker, unhinged would be a more fitting description. "So you're finally awake eh? Well good cause 
+            you have a fun time ahead of you! And if you don't know what that fun is supposed to be well it is simple... ESCAPE ME!!!" The unhinged 
+            voice of the man bursts out in laughter before cutting out.
+        </p>
         
         <!-- FIRST ROW OF CONTENT -->
         <div class="row">
             <div class="col"></div>
-            
+
             <div class="col">
                 <!-- CENTER of room selection -->
                 <div class="list-group" id="centerSelect">
                     <button type="button" onclick="clickNorth()" class="list-group-item list-group-item-action">North Wall</button>
                     <button type="button" onclick="clickSouth()" class="list-group-item list-group-item-action">South Wall</button>
                     <button type="button" onclick="clickEast()" class="list-group-item list-group-item-action">East Wall</button>
-                    <button type="button" onclick="clickWest()" class="list-group-item list-group-item-action">West Wall</button>
                     <button type="button" onclick="clickLift()" class="list-group-item list-group-item-action">Lift</button>
                 </div>
 
                 <!-- NORTH of room selection -->
                 <div class="list-group" id="northSelect" style="display: none">
-                    <button type="button" onclick="n1()" class="list-group-item list-group-item-action">n1</button>
-                    <button type="button" onclick="n2()" class="list-group-item list-group-item-action">n2</button>
-                    <button type="button" onclick="n3()" class="list-group-item list-group-item-action">n3</button>
+                    <button type="button" onclick="n1()" class="list-group-item list-group-item-action">Broken Cabinet</button>
+                    <button type="button" onclick="n2()" class="list-group-item list-group-item-action">Open Cabinet</button>
+                    <button type="button" onclick="n3()" class="list-group-item list-group-item-action">Closed Cabinet</button>
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
                 </div>
 
                 <!-- SOUTH of room selection -->
                 <div class="list-group" id="southSelect" style="display: none">
-                    <button type="button" onclick="s1()" class="list-group-item list-group-item-action">s1</button>
-                    <button type="button" onclick="s2()" class="list-group-item list-group-item-action">s2</button>
-                    <button type="button" onclick="s3()" class="list-group-item list-group-item-action">s3</button>
+                    <button type="button" onclick="s1()" class="list-group-item list-group-item-action">Grass Lands</button>
+                    <button type="button" onclick="s2()" class="list-group-item list-group-item-action">Desert</button>
+                    <button type="button" onclick="s3()" class="list-group-item list-group-item-action">Ocean</button>
+                    <button type="button" onclick="s4()" class="list-group-item list-group-item-action">Smash</button>
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
                 </div>
 
                 <!-- EAST of room selection -->
                 <div class="list-group" id="eastSelect" style="display: none">
-                    <button type="button" onclick="e1()" class="list-group-item list-group-item-action">e1</button>
-                    <button type="button" onclick="e2()" class="list-group-item list-group-item-action">e2</button>
-                    <button type="button" onclick="e3()" class="list-group-item list-group-item-action">e3</button>
-                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
-                </div>
-
-                <!-- WEST of room selection -->
-                <div class="list-group" id="westSelect" style="display: none">
-                    <button type="button" onclick="w1()" class="list-group-item list-group-item-action">w1</button>
-                    <button type="button" onclick="w2()" class="list-group-item list-group-item-action">w2</button>
-                    <button type="button" onclick="w3()" class="list-group-item list-group-item-action">w3</button>
+                    <button id="compSmash" type="button" onclick="e1()" class="list-group-item list-group-item-action">Turn on Computer</button>
+                    <button type="button" onclick="e2()" class="list-group-item list-group-item-action">Read Notes</button>
+                    <button type="button" onclick="e3()" class="list-group-item list-group-item-action">Check Drawers</button>
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
                 </div>
 
                 <!-- LIFT selection -->
                 <div class="list-group" id="lift" style="display: none">
-                    <button type="button" onclick="l1()" class="list-group-item list-group-item-action">l1</button>
-                    <button type="button" onclick="l2()" class="list-group-item list-group-item-action">l2</button>
-                    <button type="button" onclick="l3()" class="list-group-item list-group-item-action">l3</button>
+                    <button type="button" onclick="l1()" class="list-group-item list-group-item-action">Climb Wires</button>
+                    <button type="button" onclick="l2()" class="list-group-item list-group-item-action">Step Up on Railing</button>
+
+                    <div class="input-group mb-3">
+                        <input id="keyInput" type="text" class="form-control" placeholder="ex: 123" aria-label="key-input" aria-describedby="button-addon2">
+                        <button class="btn-1" type="button" id="button-addon2" onclick="keypad()">Submit</button>
+                    </div>
+                    
+                    <button class="btn-2" type="button" id="exitBtn"><a class="nav-link" href="area2.html">Enter Next Area</a></button>
+
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">center</button>
                 </div>
             </div>
-            
+
             <div class="col"></div>
         </div>
-        
+
         <!-- SECOND ROW OF CONTENT -->
         <div class="row">
             <div class="col"></div>
-            
+
             <div class="col"></div>
-            
+
             <div class="col"></div>
         </div>
 
@@ -92,106 +97,137 @@
     <script>
         var description = document.getElementById("desc");
 
+        var digit_1 = Math.floor(Math.random() * 10);
+        var digit_2 = Math.floor(Math.random() * 10);
+        var digit_3 = Math.floor(Math.random() * 10);
+        
+        var randomNum = Math.floor(Math.random() * 10);
+        if(randomNum == digit_1 && randomNum < 9){
+            randomNum++;
+        }
+        
+        var unlocked = false;
+        
+        var compSmashed = false;
+        var fromEast = false;
+
         function clickCenter() {
-            description.innerHTML = "Main Area";
+            if(fromEast == true && compSmashed == true){
+                description.innerHTML = "As you walk away from the desk you notice something sticking out of the now double smashed computer. You reach down and grab that something, its a piece of paper with 'xx " + digit_3 + "' written on it. <br><br> You walk back to the center of the room. The first wall is all filing cabinets, then a window that has a bright light coming from it, and a desk on the another side of you. And finally the Lift you spoted earlier which is the only exit.";
+            }
+            else{
+                description.innerHTML = "You walk back to the center of the room. The first wall is all filing cabinets, then a window that has a bright light coming from it, and a desk on the another side of you. And finally the Lift you spoted earlier which is the only exit.";
+            }
 
             document.getElementById("centerSelect").style.display = "block";
             document.getElementById("northSelect").style.display = "none";
             document.getElementById("southSelect").style.display = "none";
             document.getElementById("eastSelect").style.display = "none";
-            document.getElementById("westSelect").style.display = "none";
             document.getElementById("lift").style.display = "none";
+            
+            fromEast = false;
         }
 
         //CENTER SCRIPTS-------------------
         function clickNorth() {
+            description.innerHTML = "You walk up to the wall of filing cabinets most of them seem to have seem to have locks still intact on them. But there are some where the cabinets have been broken off or are just hanging open.";
             document.getElementById("centerSelect").style.display = "none"
             document.getElementById("northSelect").style.display = "block";
         }
 
         function clickSouth() {
+            description.innerHTML = "As you get closer to the window your eyes adjust to the bright lights letting you see through clearly. It's the outside, and it's a field with a small hill and a tree on it? But since you assume you're underground you try looking at an angle which you can see past the frame so it is NOT a TV. There are some buttons with labes and a chair next to the window, but nothing else of significance.";
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("southSelect").style.display = "block";
         }
 
         function clickEast() {
+            description.innerHTML = "You walk over to the desk that just has a picture frame with no picture, some notes, and the drawers to it. The only other thing of note is a smashed computer better watch out for the glass.";
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("eastSelect").style.display = "block";
-        }
-
-        function clickWest() {
-            document.getElementById("centerSelect").style.display = "none";
-            document.getElementById("westSelect").style.display = "block";
+            
+            if(compSmashed == true){
+                document.getElementById("compSmash").style.display = "none";
+            }
+            fromEast = true;
         }
 
         function clickLift() {
+            description.innerHTML = "You walk over to the lift and see a small keypad that has a sticky note of an example saying 'ex: 123.' The only other things over here are the wires to the lift to raise it, and some rails on it for when it is in motion.";
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("lift").style.display = "block";
+            if(unlocked == false){
+                document.getElementById("exitBtn").style.display = "none";
+            }
+            else if(unlocked == true){
+                document.getElementById("exitBtn").style.display = "block";
+            }
         }
 
-        //NORTH SCRIPTS-------------------
+        //NORTH SCRIPTS------cabinets-------------
         function n1() {
-            description.innerHTML = "N1";
+            description.innerHTML = "You open on of the cabinets with a broken lock on it and pull out the only file inside. The file reads: <br><br> 'The test subject somehow took his new situation with stride and solved each puzzle placed before him, but when I was leaving the testing room they watched me input the old code and escaped. I have changed the new code to x" + digit_2 + "x' Two of the numbers are scratched out this may be one of the numbers to an exit though. Perhaps there is something around to confirm this.";
         }
 
         function n2() {
-            description.innerHTML = "N2";
+            description.innerHTML = "You open one of the mostly open drawers and pull out a file inside. The file reads: <br><br> 'The test subject once realizing that they were captured as some sort of test subject... lost there mind and became a failure almost immediatly. I will reset the code and find someone new. The code will be x" + randomNum + "x' Two of the numbers are scratched out this may be one of the numbers to an exit though. Perhaps there is something around to confirm this.";
         }
 
         function n3() {
-            description.innerHTML = "N3";
+            description.innerHTML = "You open the last cabinet you can, the lock is NOT broken and it is still closed. The only thing inside is a picture of what looks like a family of three one of them a child with a birthday hat. On the back there is writing. 'Never forget the day. July 16, 05";
         }
 
-        //SOUTH SCRIPTS-------------------
+        //SOUTH SCRIPTS------window-------------
         function s1() {
-            description.innerHTML = "S1";
+            description.innerHTML = "You press the 'Grass Lands' button and it's the sight you saw when you first walked up. It is a wide open field of grass and bright and clear day, the wind making the grass seem like waves of the sea. And on a small hill a tree for some shade. But at a closer look there seems to be a few figures under the tree, three from what you can tell.";
         }
 
         function s2() {
-            description.innerHTML = "S2";
+            description.innerHTML = "After pressing the 'Desert' button the view instantly switches to that of an actual desert. Mountains of sand, not a single spot of shade for a person to hide in, and the Blazing Hot Sun that make you sweat even on this side of the glass. After looking some more you notice a sign off to the right and what seems to be a road covered in sand. The sign says, 'Wel-- t- Pit--urgh " + digit_1 + "xx'. Most of the text is unreadable but that seems to be a number that wouldn't normally be there on a welcome sign.";
         }
 
         function s3() {
-            description.innerHTML = "S3";
+            description.innerHTML = "You press the 'Ocean' button and view changes and you can hear the ocean waves. And you see it, the ocean. As you look around the most noticable thing is the sun going down. But after truly abserving not the scenary but everything you notice down in the sand a 'Broken Lock'?";
+        }
+        
+        function s4() {
+            description.innerHTML = "After viewing the window enough you decide maybe this is a way out. So you grab the steel chair next to the window. The with everything you have you slam the chair into the window, but you don't even crack it. Instead you leave your hands numb from the impact.";
         }
 
-        //EAST SCRIPTS-------------------
+        //EAST SCRIPTS-------desk------------
         function e1() {
-            description.innerHTML = "E1";
+            description.innerHTML = "You press the power button on the broken computer, and it turns on but the screen is smashed so you can see anything. When you go to turn it off you press a little to hard knocking it off the desk and breaking it.";
+            compSmashed = true;
+            fromEast = true;
         }
 
         function e2() {
-            description.innerHTML = "E2";
+            description.innerHTML = "'I am getting tired of all the test failures. If I could just figure out that one last thing I am sure they would remember everything, the serum is right but it requires something external that medicine cannot provide. But what is it?' These notes seem more like a personal log rather than any research notes.";
         }
 
         function e3() {
-            description.innerHTML = "E3";
-        }
-
-        //WEST SCRIPTS-------------------
-        function w1() {
-            description.innerHTML = "W1";
-        }
-
-        function w2() {
-            description.innerHTML = "W2";
-        }
-
-        function w3() {
-            description.innerHTML = "W3";
+            description.innerHTML = "You try to open the drawer but it is stuck on something. You grab the desk with one hand and pull the drawer handle as hard as you can until you finally rip it open. When you do an explosion of papers flys out of the drawer at first glance it is nothing but notes written by someone clearly insane. But mixed in with the notes are photos, only thing thats for certain is that there are no two photos of the same person.";
         }
 
         //LIFT SCRIPTS-------------------
         function l1() {
-            description.innerHTML = "L1";
+            description.innerHTML = "You try grabbing one of the cables for the lift and climbing up but it is to small to grip onto and you just cut your hand when you do.";
         }
 
         function l2() {
-            description.innerHTML = "L2";
+            description.innerHTML = "You step up onto the the rails for the lift trying to reach the for the upper ledge. For what reason who know it is around 20ft tall. But in your struggle you finally fall over and give up on that.";
         }
 
-        function l3() {
-            description.innerHTML = "L3";
+        function keypad() {
+            var keyInput = document.getElementById("keyInput").value;
+
+            if (keyInput == digit_1 + "" + digit_2 + "" + digit_3) {
+                description.innerHTML = "SUCCESS";
+                unlocked = true;
+                document.getElementById("exitBtn").style.display = "block";
+            } else {
+                description.innerHTML = "FAIL";
+            }
         }
     </script>
 
