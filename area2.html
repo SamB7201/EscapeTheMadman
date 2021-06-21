@@ -58,7 +58,8 @@
                 <div class="list-group" id="eastSelect" style="display: none">
                     <button type="button" onclick="e1()" class="list-group-item list-group-item-action">Look Out Window</button>
                     <button type="button" onclick="e2()" class="list-group-item list-group-item-action">Inspect Desk</button>
-                    <button type="button" onclick="e3()" class="list-group-item list-group-item-action">Inspect Filing Cabinets</button>
+                    <button id="e3" type="button" onclick="e3()" class="list-group-item list-group-item-action">Use Computer</button>
+                    <button type="button" onclick="e4()" class="list-group-item list-group-item-action">Inspect Filing Cabinets</button>
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
                 </div>
                 
@@ -67,6 +68,14 @@
                     <button type="button" onclick="w1()" class="list-group-item list-group-item-action">Look Out Window</button>
                     <button type="button" onclick="w2()" class="list-group-item list-group-item-action">Inspect Desk</button>
                     <button id="w3" type="button" onclick="w3()" class="list-group-item list-group-item-action">Use Computer</button>
+                    
+                    <!-- Computer Password Input -->
+                    <div class="input-group" id="compPassword">
+                        <input id="compInput" type="text" class="form-control" placeholder="Birthday xx-xx-xx" aria-label="key-input" aria-describedby="button-addon2">
+                        <button class="btn-1" type="button" onclick="compPass()">Submit</button>
+                    </div>
+                    <!-- ----------------------- -->
+                    
                     <button type="button" onclick="w4()" class="list-group-item list-group-item-action">Inspect Filing Cabinets</button>
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
                 </div>
@@ -78,16 +87,16 @@
 
                 <!-- EXIT selection -->
                 <div class="list-group" id="exit" style="display: none">
-                    <button type="button" onclick="l1()" class="list-group-item list-group-item-action">E1</button>
-                    <button type="button" onclick="l2()" class="list-group-item list-group-item-action">E2</button>
-                    <button type="button" onclick="l3()" class="list-group-item list-group-item-action">E3</button>
+                    <button id="doorKnock" type="button" onclick="l1()" class="list-group-item list-group-item-action">Knock</button>
+                    <button type="button" onclick="l2()" class="list-group-item list-group-item-action">Listen</button>
+                    <button type="button" onclick="l3()" class="list-group-item list-group-item-action">Look Under</button>
 
                     <div class="input-group mb-3">
                         <input id="keyInput" type="text" class="form-control" placeholder="ex: 123" aria-label="key-input" aria-describedby="button-addon2">
-                        <button class="btn-1" type="button" id="button-addon2" onclick="keypad()">Submit</button>
+                        <button class="btn-1" type="button" onclick="keypad()">Submit</button>
                     </div>
                     
-                    <button class="btn-2" id="exitBtn"><a class="nav-link" href="area2.html">Enter Next Area</a></button>
+                    <button class="btn-2" type="button" id="exitBtn2"><a class="nav-link" href="area3.html">Enter Next Area</a></button>
 
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Go Back</button>
                 </div>
@@ -119,7 +128,11 @@
         var from3 = false;
         var from4 = false;
         
+        var desk = false;
         var windowSafe = false;
+        var unlocked = false;
+        
+        var knock = 1;
 
         function clickCenter() {
             if(from1 == true){
@@ -173,6 +186,7 @@
             description.innerHTML = "You walk into the abandoned office. The most noticable thing is the thick layer of dust on everything. There is an old wooden desk with e computer on top of it. A window with sand blasted glass. And a line of filing cabinets against along the wall.";
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("eastSelect").style.display = "block";
+            document.getElementById("e3").style.display = "none";
             from3 = true;
         }
         
@@ -180,6 +194,12 @@
             description.innerHTML = "You enter the Office that actually seems like a normal one. The lights work, and everything is lean and intact. There is a wooden desk with a computer on it, sand blasted windows, and a line of filing cabinets against the wall.";
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("westSelect").style.display = "block";
+            document.getElementById("w3").style.display = "none";
+            
+            //This is to hide Computer Password till needed and won't break CSS
+            document.getElementById("compPassword").style.visibility = "hidden";
+            document.getElementById("compPassword").style.height = "0px";
+            
             from4 = true;
         }
 
@@ -187,7 +207,12 @@
             description.innerHTML = "You walk down the hall and standing in front of the metal door. There is a key pad with another sticky note. 'Same as before'. How original.";
             document.getElementById("centerSelect").style.display = "none";
             document.getElementById("exit").style.display = "block";
-            document.getElementById("exitBtn").style.display = "none";
+            if(unlocked == false){
+                document.getElementById("exitBtn2").style.display = "none";
+            }
+            else if(unlocked == true){
+                document.getElementById("exitBtn2").style.display = "block";
+            }
         }
 
         //NORTH SCRIPTS------ROOM1-------------
@@ -229,7 +254,7 @@
         }
 
         function s3() {
-            description.innerHTML = "You grab some of the papers off the floor and skim them before finding one that stands out due to it's labeling. 'I finally made some progress with restoring memories but now they want to shut us down?!, If they won't provide me with the funds I'll get the research material myself.' At the top of the paper you see a name and date but they're faded somewhat, and a part of a number below them. '" + digit_1 + "xx'";
+            description.innerHTML = "You grab some of the papers off the floor and skim them before finding one that stands out due to it's labeling. 'I finally made some progress with restoring memories but now they want to shut us down?!, If they won't provide me with the funds I'll get the research material myself.' At the top of the paper you see a name and date but the name is faded and the date says 09-13-06, and there is a part of a number below, '" + digit_1 + "xx'";
         }
         
         function s4() {
@@ -238,45 +263,93 @@
 
         //EAST SCRIPTS-------ROOM3------------
         function e1() {
-            description.innerHTML = "R3-1";
+            description.innerHTML = "The only thing you can see through the windows is black outlines of bars on the outside of the windows. What could be the reason they need bars on the windows this high up? You try opening it and its a struggle but you finally do and see a court yard full of tall grass, and a tree that looks unkept.";
         }
 
         function e2() {
-            description.innerHTML = "R3-2";
+            description.innerHTML = "You run your hand over the top of the desk wiping away layers of dust making dust clouds come off. You cough some only blowing more up, and when you finally stop and the dust settles you notice some writing on the desks corner. As you wipe away the dust covering it you notice it's engraved, 'H. Ashton x" + digit_2 + "x'. So whoever used this office was named H. Ashton?";
+            
+            document.getElementById("e3").style.display = "block";
+            desk = true;
         }
 
         function e3() {
-            description.innerHTML = "R3-3";
+            description.innerHTML = "You try using the computer but of course with there being no power in this building the whole effort seems kind of pointless.";
+        }
+        
+        function e4() {
+            description.innerHTML = "You try opening a few of the filing cabinet drawers but all of them are locked. Trying to force them would be pointless but there are signs that they're just starting to rust. To bad you can't wait a long time for them to just rust away.";
         }
         
         //WEST SCRIPTS-------ROOM4------------
         function w1() {
-            description.innerHTML = "R4-1";
+            description.innerHTML = "You walk over to the window and slide it open. Below is a court yard that has a small patch of flowers, Clean cut grass, and a beautiful tree. This is a great sight to see if you would work here everyday.";
         }
 
         function w2() {
-            description.innerHTML = "R4-2";
+            if(desk == true){
+                description.innerHTML = "walk over to the desk and the only thing of notice is the desks calender with a few dates marked in August, 2006. '5th: Recital 1:00pm', also every Thursday is marked 'Green Park 12:00pm'. But if that is supposed to be some routine why write it down?<br><br>After looking around some more you notice at one corner of the desk something engraved, 'H. Ashton', Wasn't that the name in the older offce?";
+            }
+            else{
+                description.innerHTML = "walk over to the desk and the only thing of notice is the desks calender with a few dates marked in August, 2006. '5th: Recital 1:00pm', also every Thursday is marked 'Green Park 12:00pm'. But if that is supposed to be some routine why write it down?";
+            }
+            
+            document.getElementById("w3").style.display = "block";
         }
 
         function w3() {
-            description.innerHTML = "R4-3";
+            description.innerHTML = "You turn on the computer but are quickly stopped in your tracks by a Password input. The only hint is a 'Birthday xx-xx-xx'.";
+            
+            document.getElementById("compPassword").style.visibility = "visible";
+            document.getElementById("compPassword").style.height = "75px";
         }
         
         function w4() {
-            description.innerHTML = "R4-4";
+            description.innerHTML = "The filing cabinets are locked and still in good condition. There is no point trying to pry this open either.";
         }
 
         //EXIT SCRIPTS-------EXIT------------
         function l1() {
-            description.innerHTML = "E1";
+            switch(knock){
+                case 1:
+                    description.innerHTML = "You knock on the door then for a second you think you hear something on the other side of the door.";
+                    document.getElementById("doorKnock").innerHTML = "Knock again";
+                    knock++;
+                    break;
+                    
+                case 2:
+                    description.innerHTML = "You knock again and this time afterwards you know you heard something or someone on the other side of the door.";
+                    knock++;
+                    break;
+                    
+                case 3:
+                    description.innerHTML = "You try a third time but this time you get a response of a loud 'BANG BANG BANG' on the door. Whatever that is it sounds angry.";
+                    knock++;
+                    break;
+                    
+                case 4:
+                    description.innerHTML = "You persist and knock a fourth time and the door bangs from the other side then the speakers come on. 'Are you really just standing there hitting the door thinking something is going to let you through?!' The mad man cuts out again. Should you really press your luck with whatever is on the other side?";
+                    knock++;
+                    break;
+                    
+                case 5:
+                    description.innerHTML = "You say 'What's the worst that could happen?', and slam on that door for the fifth time. To your surprise instead of the bang in response after a moment you hear the doors locks come undone and the door slowly open. The exit is completely dark then all of a sudden from that darkness, something large and with a lot of teeth lunges at you. The worst thing that could happen did.";
+                    
+                    document.getElementById("desc").style.color = "white";
+                    document.getElementById("body").style.backgroundColor = "red";
+                    document.getElementById("exit").style.display = "none";
+                    document.getElementById("restartSelect").style.display = "block";
+                    
+                    break;
+            }
         }
 
         function l2() {
-            description.innerHTML = "E2";
+            description.innerHTML = "You press your ear to the door, you can faintly hear something on the other side of the door. Like heavy breathing or snoring.";
         }
 
         function l3() {
-            description.innerHTML = digit_1 + "" + digit_2 + "" + digit_3;
+            description.innerHTML = "You try to look under the door but you can't see much other than something in middle of the next room. It's not changing positions but it is moving slightly.";
         }
 
         function keypad() {
@@ -284,9 +357,23 @@
 
             if (keyInput == digit_1 + "" + digit_2 + "" + digit_3) {
                 description.innerHTML = "SUCCESS";
-                document.getElementById("exitBtn").style.display = "block";
+                document.getElementById("exitBtn2").style.display = "block";
+                unlocked = true;
             } else {
                 description.innerHTML = "FAIL";
+            }
+        }
+        
+        //COMPUTER PASSWORD SCRIPT-----------------------------------
+        function compPass(){
+            var keyInput = document.getElementById("compInput").value;
+
+            if ("07-16-05") {
+                description.innerHTML = "The computer unlocks and when it unlocks there is a file already open. 'The memory loss is getting worse day by day, I know what treatment is needed for the serum to function properly but the execution of that treatment is part of the issue. Tests are needed to succeed but the way to test it will never be approved. But I will do whatever it takes to complete this, for Alice.' The data the file was last saved was 08-30-06";
+                document.getElementById("compPassword").style.visibility = "hidden";
+                document.getElementById("compPassword").style.height = "0px";
+            } else {
+                description.innerHTML = "Password Incorrect. (Hint: 'Birthday xx-xx-xx / month-day-year')";
             }
         }
     </script>

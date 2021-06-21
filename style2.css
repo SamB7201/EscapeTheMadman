@@ -35,6 +35,10 @@ p{
     width: 350px;
 }
 
+.input-group{
+    padding: 0px;
+}
+
 .btn-1{
     border-color: firebrick;
     background-color: dimgray;
