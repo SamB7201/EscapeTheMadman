@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="style2.css">
+
+    <title>Escape The Madman!</title>
+</head>
+
+<body id="body">
+    <h1>The Truth</h1>
+
+    <div class="container">
+        <p id="desc">
+            You make your way up the stairwell and out onto the catwalk overviewing the main lobby. You look down as you walk for the Main Office, but something is missing. That Monster is gone, you look around to see if it somehow climbed up but it is just no where to be seen. You pick up the pace and get into the office closing the door behind you and locking it while facing the door.
+            <br><br>
+            As you are standing there in silence you half expected to hear that Madman standing behind you laughing, but there is nothing. You turn around and see an office that feels familiar. The it hits you, this is just like those aging offices but a few differences. The wall opposit of you still has a Window, and there is a Desk directly in front of it still. But to your right there is a Book shelf covering the wall, and to your left a TV.
+            <br><br>
+            Is this just another test or someting else?
+        </p>
+
+        <!-- FIRST ROW OF CONTENT -->
+        <div class="row">
+            <div class="col"><img src="images/a4-1.jpg" class="img-fluid"></div>
+
+            <div class="col">
+                <!-- CENTER of room selection -->
+                <div class="list-group" id="centerSelect">
+                    <button type="button" onclick="Window()" class="list-group-item list-group-item-action">Window</button>
+                    <button type="button" onclick="BookShelf()" class="list-group-item list-group-item-action">Book Shelf</button>
+                    <button type="button" onclick="TV()" class="list-group-item list-group-item-action">Inspect TV</button>
+                    <button type="button" onclick="Desk()" class="list-group-item list-group-item-action">Inspect Desk</button>
+                    <button id="Exit" type="button" onclick="Exit()" style="display: none" class="list-group-item list-group-item-action">Leave</button>
+                </div>
+
+                <!-- WINDOW selection -->
+                <div class="list-group" id="Window" style="display: none">
+                    <button type="button" onclick="w1()" class="list-group-item list-group-item-action">Open Window</button>
+                    <button id="w2" type="button" onclick="w2()" class="list-group-item list-group-item-action">Clean Off Window</button>
+                    <button id="w3" type="button" onclick="w3()" class="list-group-item list-group-item-action">Look Out Window</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Return to Center</button>
+                </div>
+
+                <!-- BOOKSHELF selection -->
+                <div class="list-group" id="BookShelf" style="display: none">
+                    <button type="button" onclick="s1()" class="list-group-item list-group-item-action">Read 'Project Recall'</button>
+                    <button type="button" onclick="s2()" class="list-group-item list-group-item-action">Read Red Cover Book</button>
+                    <button id="s3" type="button" onclick="s3()" class="list-group-item list-group-item-action">Look at Drawing</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Return to Center</button>
+                </div>
+
+                <!-- TV selection -->
+                <div class="list-group" id="TV" style="display: none">
+                    <button id="tv1" type="button" onclick="tv1()" class="list-group-item list-group-item-action">Wipe Off Dust</button>
+                    <button id="tv2" type="button" onclick="tv2()" class="list-group-item list-group-item-action">Turn On TV</button>
+                    <button id="tv3" type="button" onclick="tv3()" class="list-group-item list-group-item-action">Play Tape</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Return to Center</button>
+                </div>
+
+                <!-- DESK selection -->
+                <div class="list-group" id="Desk" style="display: none">
+                    <button id="d1-1" type="button" onclick="d1_1()" class="list-group-item list-group-item-action">Wipe Dust Off Desk</button>
+                    <button id="d1-2" type="button" onclick="d1_2()" class="list-group-item list-group-item-action">Inspect Desk</button>
+                    <button type="button" onclick="d2()" class="list-group-item list-group-item-action">Use Computer</button>
+
+                    <div class="input-group" id="compPassword">
+                        <input id="compInput" type="text" class="form-control" placeholder="My Everything" aria-label="key-input" aria-describedby="button-addon2">
+                        <button class="btn-1" type="button" onclick="compPass()">Submit</button>
+                    </div>
+
+                    <button type="button" onclick="d3()" class="list-group-item list-group-item-action">Look at Picture</button>
+                    <button id="d4" type="button" onclick="d4()" class="list-group-item list-group-item-action">Unlock Exit</button>
+                    <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Return to Center</button>
+                </div>
+
+                <div class="list-group" id="exitSelect" style="display: none">
+                    <button class="btn-2" type="button" id="exitBtn2"><a class="nav-link" href="home.html">Thank You for Playing</a></button>
+                </div>
+            </div>
+
+            <div class="col"><img src="images/a4-2.jpg" class="img-fluid"></div>
+        </div>
+
+        <!-- SECOND ROW OF CONTENT -->
+        <div class="row">
+            <div class="col"><img src="images/a4-3.jpg" class="img-fluid"></div>
+
+            <div class="col"></div>
+
+            <div class="col"><img src="images/a4-4.jpg" class="img-fluid"></div>
+        </div>
+
+    </div>
+
+    <script>
+        var description = document.getElementById("desc");
+
+        var w2Done = false;
+        var s2Done = false;
+        var tv1Done = false;
+        var d1Done = false;
+
+        var memories = 0;
+        var unlocked = false;
+        var compUnlocked = false;
+
+        var found1 = false;
+        var found2 = false;
+        var found3 = false;
+        var found4 = false;
+        var found5 = false;
+
+        function clickCenter() {
+            description.innerHTML = "Main Area";
+
+            document.getElementById("centerSelect").style.display = "block";
+            document.getElementById("Window").style.display = "none";
+            document.getElementById("BookShelf").style.display = "none";
+            document.getElementById("TV").style.display = "none";
+            document.getElementById("Desk").style.display = "none";
+
+            if (unlocked == false) {
+                document.getElementById("Exit").style.display = "none";
+            } else {
+                document.getElementById("Exit").style.display = "block";
+            }
+        }
+
+        //CENTER SCRIPTS-------------------
+        function Window() {
+            description.innerHTML = "You walk over to the window seeing it is covered in a thick layer of dirt or dust. It looks like you can see through it if it was a little cleaner, but you are not sure it might just be easier to open te window.";
+            document.getElementById("centerSelect").style.display = "none"
+            document.getElementById("Window").style.display = "block";
+
+            if (w1Done == false) {
+                document.getElementById("w3").style.display = "none"
+            } else {
+                document.getElementById("w2").style.display = "none"
+            }
+        }
+
+        function BookShelf() {
+            document.getElementById("centerSelect").style.display = "none";
+            document.getElementById("BookShelf").style.display = "block";
+
+            if (s2Done == false) {
+                description.innerHTML = "You walk over to the large book shelf and right away you can tell no one has pulled a book off of this shelf for a long time with this layer of dust. Also most of the books do not look like they've held up well with time. There is a binder in with the books labeled 'Project Recall' which sounds like something important, And there is a book with a 'Red Cover' that looks in good enough condition to pull out.";
+                document.getElementById("s3").style.display = "none";
+            } else {
+                description.innerHTML = "You walk over to the large book shelf the binder labeled 'Project Recall' and the Journal with the 'Red Cover' are in their same spots, and the drawing is laying next to the Journal where you left it.";
+                document.getElementById("s3").style.display = "block";
+            }
+        }
+
+        function TV() {
+            document.getElementById("centerSelect").style.display = "none";
+            document.getElementById("TV").style.display = "block";
+
+            if (tv1Done == false) {
+                description.innerHTML = "You walk over to the TV and you though it might have been used recently but it has dust covering it as well. Even if you turned it on you probably would not see alot of the picture.";
+                document.getElementById("tv2").style.display = "none";
+                document.getElementById("tv3").style.display = "none";
+            } else {
+                description.innerHTML = "You come back to the tv that seems to have turned itself off, probably on power saver or something. You can turn it on or you and watch the camera or you can watch the Tape next to the TV.";
+                document.getElementById("tv1").style.display = "none";
+
+                document.getElementById("tv2").style.display = "block";
+                document.getElementById("tv3").style.display = "block";
+            }
+        }
+
+        function Desk() {
+            description.innerHTML = "You walk over to the Desk and there are a few things to check out. If this Main Office is like those Aging Offices then maybe the desk is the same. There is also a picture frame that is face down on the desk, and the computer that is turned off.";
+            document.getElementById("centerSelect").style.display = "none";
+            document.getElementById("Desk").style.display = "block";
+
+            document.getElementById("compPassword").style.visibility = "hidden";
+            document.getElementById("compPassword").style.height = "0px";
+
+            if (d1Done == false) {
+                document.getElementById("d1-2").style.display = "none";
+            } else {
+                document.getElementById("d1-1").style.display = "none";
+            }
+            if (unlocked == true) {
+                document.getElementById("d4").style.display = "none";
+            }
+        }
+
+        //WINDOW SCRIPTS-------------------
+        function w1() {
+            description.innerHTML = "You try opening the window instead of cleaning it off, but to no avail it's jammed on something and don't really know if some other horror is outside the window either.";
+        }
+
+        function w2() {
+            description.innerHTML = "You take a sleeve of your shirt and rub away the dust that is stuck to the window. As soon as you do the room gets much brighter from sunlight.";
+
+            w2Done = true;
+            document.getElementById("w2").style.display = "none"
+            document.getElementById("w3").style.display = "block"
+        }
+
+        function w3() {
+            description.innerHTML = "Your eyes adjust to the brightness of the sun coming from the now mostly clean window. It is the courtyard but instead of being dead and unkept it is more like a large field with a beautiful tree at the center of it. Sort of like when you were sitting under that tree on the hill with... Your head starts pounding when you think of something you're not quite sure how you know.";
+
+            if (found1 == false) {
+                memories++;
+                found1 = true;
+            }
+        }
+
+        //BOOKSHELF SCRIPT------------------
+        function s1() {
+            description.innerHTML = "You grab the binder off the shelf and flip it open. It goes over a bunch things like a serum that is meant to restore memories and help treat thing like Alzheimers and Dementia but goes onto say the serum on its own does not work. And that it needs a sort of shock to get the serum to work. But not the elctric type but a traumatic type.";
+        }
+
+        function s2() {
+            if (s2Done == false) {
+                description.innerHTML = "You grab the red covered book of the shelf and flip it open. You were expecting something like research notes again but its just a Journal saying things like, 'Went to the Green Park with my family, wish this could go on forever.', and other entries saying, 'Went out for ice cream after the dance recital.' Whoever this belonged to seemed to write nothing but things that they did with their family. As you flip to the last page and piece of paper falls out onto the ground.";
+            } else {
+                description.innerHTML = "You grab the Journal that has a entries like, 'Went to the Green Park with my family, wish this could go on forever.', and other entries saying, 'Went out for ice cream after the dance recital.' Whoever this belonged to seemed to write nothing but things that they did with their family.";
+            }
+
+            s2Done = true;
+            document.getElementById("s3").style.display = "block";
+        }
+
+        function s3() {
+            description.innerHTML = "You inspect the paper and its a drawing that depicts a child holding the hands of what look like her mother and father. It looks just like the one you got from... Just as you come to that though your head starts pounding nearly knocking you over from the pain. You sit the piece of paper on the shelf and take a moment to calm down as the pain fades.";
+
+            if (found2 == false) {
+                memories++;
+                found2 = true;
+            }
+        }
+
+        //TV SCRIPT-------------------------
+        function tv1() {
+            description.innerHTML = "You wipe the dust off of the TV till you could properly see the screen, now you just need to turn it on and see if there is anything important enough to see other than news.";
+            tv1Done = true;
+
+            document.getElementById("tv1").style.display = "none";
+            document.getElementById("tv2").style.display = "block";
+        }
+
+        function tv2() {
+            description.innerHTML = "You turn the TV on and it just shows all the areas you walked through. Starting at that pit, then those Aging Offices, the Main Lobby, and even the office you're in. You turn around and see the camera overlooking the office and then back at the TV seeing your back. So whoever set this up was watching, but wait how were they watching if the TV looked like it hasn't been touched in forever? As you're thinking there is a VHS Tape next to the TV maybe it can tell you something.";
+            document.getElementById("tv3").style.display = "block";
+        }
+
+        function tv3() {
+            description.innerHTML = "You pu the Tape in and press play, right away it starts playing a recoding of other people. They're all doing the same tings you were. Some of them, no most of them don't get as far as you have. There are people who sit and just wait in the pit. Others who stop in the office and freak out not knowing what to look for. And the few that got to the Lobby either breakdown and cry when they can't get out the door or fall over and like something is on top of them before passing out. <br><br>They were all the 'failures' of the tests meant to make the serum work... Your head starts to feel like someone is slamming something into your head as you feel like you remeber what happened after each of the others failed. Like letting them go cause they obviously won't remember anything? You take the tape out and put it back before stepping away to take a breath.";
+
+            if (found4 == false) {
+                memories++;
+                found4 = true;
+            }
+        }
+
+        //DESK SCRIPT-----------------------
+        function d1_1() {
+            description.innerHTML = "You take you hand over where that engraving on the desk in the Aging Offices was and wipe the dust off. And there it is again, 'H. Ashton' and even the calender was on the desk with the same dates marked and same year. No one even bothered changing it.";
+            d1Done = true;
+
+            document.getElementById("d1-1").style.display = "none";
+            document.getElementById("d1-2").style.display = "block";
+        }
+
+        function d1_2() {
+            description.innerHTML = "You look down at the desk and run your hand over the engraving, 'H. Ashton' and look at the calender. August, 2006. '5th: Recital 1:00pm', and then every Thursday 'Green Park 12:00pm'.";
+        }
+
+        function d2() {
+            if (compUnlocked == false) {
+                description.innerHTML = "You use the computer and of course its locked with a password and the only hint is 'My World' maybe there was something along the way here that said what it was?";
+
+                document.getElementById("compPassword").style.visibility = "visible";
+                document.getElementById("compPassword").style.height = "75px";
+            } else {
+                description.innerHTML = "You start looking through the computer and there is only one file that says 'Read ME!' so you do. It goes over what the project called 'Project Recall' in detail. A serum was created that needed the user to experience a trauma while applying things that would spark their memories. But the person would need to WANT to search for who they are, so an enviroment would be created to have them look for their memories meanwhile the serum would cause them to hallucinate nightmarish things to get there nerves firing and on a hightened sense and eventually in their panic start remeberign things they have forgotten. <br><br>In the file was the name of the person conducting the research for the serum, 'H. Ashton' and also a picture of you. Just as you get to your picture it hits you like a wave everything you did up until this point, all the people you coaxed into working with you, the failed results. And the reason you did it all.";
+            }
+        }
+
+        function d3() {
+            description.innerHTML = "You pick up the picture and its a picture of a family of three, two parents and a daughter. All of them are sitting under some tree. The picture was taken on the first trip to that park... You come to remeber that and you get a pain in your head but its bearable but you sit the picture back down and sit in the chair for a moment before return to look around the desk.";
+
+            if (found3 == false) {
+                memories++;
+                found3 = true;
+            }
+        }
+
+        function d4() {
+            description.innerHTML = "You press the button and you can hear the loud magnetic locks in the lobby click as they unlock. You can finally leave, but are you sure you want to right now? Have you found everything that there is to find in this office.";
+
+            unlocked = true;
+            document.getElementById("d4").style.display = "none";
+        }
+
+        function Exit(){
+            if(memories >=5){
+                description.innerHTML = "You leave the Office and head back down. Thinking back on everything, able to think back on everything now. You had started to have memory loss a few years back. It was slow but day by day you would forget things. You would forget your family, and that tore at you enough where it pushed you to test on people just to fix your issue. Even though those people agreed they were still put through the horror you just wenr through, and they didn't get their memories back in the end. <br><br> You get down to the main lobbies door, and almost as if feeling like a new person you open it and feel the sun shine on your skin. Maybe its about time to head home and see your family. And make alot of new memories, cause not everyone can do that like you can now.";
+            }
+            else{
+                description.innerHTML = "You leave the Office and start to head down to the lobby. But there is something just knawing away at the back of your skull. Why were you here, who was the person that put you through this. There are so many unanswered questions. You reach the lobbies exit and force it open but once outside, when you thought you would feel free for some reason you feel empty. Why, what were you here for, Who are you?<br><br>Try Again?";
+            }
+
+            document.getElementById("centerSelect").style.display = "none";
+            document.getElementById("exitSelect").style.display = "block";
+        }
+        
+        //COMPUTER PASSWORD SCRIPT-----------------------------------
+        function compPass() {
+            var keyInput = document.getElementById("compInput").value.toLowerCase;
+
+            if ("alice") {
+                compUnlocked = true;
+                description.innerHTML = "You start looking through the computer and there is only one file that says 'Read ME!' so you do. It goes over what the project called 'Project Recall' in detail. A serum was created that needed the user to experience a trauma while applying things that would spark their memories. But the person would need to WANT to search for who they are, so an enviroment would be created to have them look for their memories meanwhile the serum would cause them to hallucinate nightmarish things to get there nerves firing and on a hightened sense and eventually in their panic start remeberign things they have forgotten. <br><br>In the file was the name of the person conducting the research for the serum, 'H. Ashton' and also a picture of you. Just as you get to your picture it hits you like a wave everything you did up until this point, all the people you coaxed into working with you, the failed results. And the reason you did it all.";
+
+                if (found5 == false) {
+                    memories += 5;
+                    found5 = true;
+                }
+
+                document.getElementById("compPassword").style.visibility = "hidden";
+                document.getElementById("compPassword").style.height = "0px";
+            } else {
+                description.innerHTML = "Password Incorrect. (Hint: 'for My Everything, for _____')";
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body></html>

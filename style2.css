@@ -1,5 +1,6 @@
 body{
     font-family: fantasy;
+    background-color: bisque;
 }
 
 h1 {
@@ -11,6 +12,7 @@ h1 {
 p{
     font-family: sans-serif;
     text-align: center;
+    font-size: 16px;
 }
 
 .btn{
@@ -57,4 +59,10 @@ p{
 a{
     font-size: 1.5em;
     color: azure;
+}
+
+.img-fluid{
+    max-width: 100%;
+    width: inherit;
+    height: auto;
 }

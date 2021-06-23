@@ -10,6 +10,7 @@ h1 {
     font-size: 4em;
     font-family: fantasy;
     padding-top: 2.5em;
+    color: firebrick;
 }
 
 .center {
@@ -21,12 +22,15 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-button{
-    width: 20em;
-    height: 10em;
-}
-
 a{
     font-size: 3em;
-    color: black;
+    color: White;
+}
+
+.btn-2{
+    border-color: firebrick;
+    background-color: dimgray;
+    color: azure;
+    width: 350px;
+    height: 150px;
 }

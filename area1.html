@@ -14,21 +14,19 @@
 </head>
 
 <body>
-    <h1>Area 1: The Pit</h1>
+    <h1>The Pit of Despair</h1>
 
     <div class="container">
         <p id="desc">You find yourself waking up on the floor of some sort of pit meant to look like some sort of lab. The first thing you see is a
             wall of file cabinets, then a window that has a bright light coming from it, and a desk on the another side of you. But the most important
             thing you notice is the lift that goes to the next level and seems to be the only exit.
             <br><br>
-            A loud voice  of a man comes over the speaker, unhinged would be a more fitting description. "So you're finally awake eh? Well good cause 
-            you have a fun time ahead of you! And if you don't know what that fun is supposed to be well it is simple... ESCAPE ME!!!" The unhinged 
-            voice of the man bursts out in laughter before cutting out.
+            A loud voice of a mad person diguising their voice with to sound like some man comes over the speaker, unhinged would be a more fitting description. "So you're finally awake eh? Well good cause you have a fun time ahead of you! And if you don't know what that fun is supposed to be well it is simple... ESCAPE ME!!!" The unhinged voice bursts out in laughter before cutting out.
         </p>
         
         <!-- FIRST ROW OF CONTENT -->
         <div class="row">
-            <div class="col"></div>
+            <div class="col"><img src="images/a1-1.jpg" class="img-fluid"></div>
 
             <div class="col">
                 <!-- CENTER of room selection -->
@@ -80,16 +78,16 @@
                 </div>
             </div>
 
-            <div class="col"></div>
+            <div class="col"><img src="images/a1-2.jpg" class="img-fluid"></div>
         </div>
 
         <!-- SECOND ROW OF CONTENT -->
         <div class="row">
-            <div class="col"></div>
+            <div class="col"><img src="images/a1-3.jpg" class="img-fluid"></div>
 
             <div class="col"></div>
 
-            <div class="col"></div>
+            <div class="col"><img src="images/a1-4.jpg" class="img-fluid"></div>
         </div>
 
     </div>
@@ -222,7 +220,7 @@
             var keyInput = document.getElementById("keyInput").value;
 
             if (keyInput == digit_1 + "" + digit_2 + "" + digit_3) {
-                description.innerHTML = "SUCCESS";
+                description.innerHTML = "You press submit and you can hear the lift's power coming on and is now ready to go whenever. Maybe you should look around just incase you missed something that could be useful laster.";
                 unlocked = true;
                 document.getElementById("exitBtn").style.display = "block";
             } else {

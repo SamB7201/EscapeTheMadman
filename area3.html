@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="style2.css">
+
+    <title>Escape The Madman!</title>
+</head>
+
+<body id="body">
+    <h1>The Way Out!</h1>
+
+    <div class="container">
+        <p id="desc">
+            You walk through the hallway door and after some walking you make your way down some stairs and into what looks like the main lobby. On the other side of the room is a set of glass doors and outside a parking lot. But there is one BIG problem. Some Moster Dog thing is between you and that door. The Monster looks like it does not have eyes, but if there are no eyes it must have great hearing and sense of smell.
+            <br><br>
+            There seems to be three ways you can go. To the RIGHT it goes under the skylight and seems to have nothing large in the way. Off to the LEFT there is a mountain of ruble in the path from the ceiling that caved in. But that is the only thing of notice. And then there is right down the CENTER, but that is where the Monster Dog is so it is probably instant Death.
+            <br><br>
+            To your surprise the Madman never comes over the speaker seems like he finally learned to be quiet.
+        </p>
+
+        <!-- FIRST ROW OF CONTENT -->
+        <div class="row">
+            <div class="col"><img src="images/a3-1.jpeg" class="img-fluid"></div>
+
+            <div class="col">
+                <!-- Start Area: Path Choice -->
+                <div class="list-group" id="Start">
+                    <button type="button" onclick="S_R()" class="list-group-item list-group-item-action">Go Right</button>
+                    <button type="button" onclick="S_L()" class="list-group-item list-group-item-action">Go Left</button>
+                    <button type="button" onclick="S_C()" class="list-group-item list-group-item-action">Down Center</button>
+                    <button type="button" onclick="Run()" class="list-group-item list-group-item-action">Run for Exit</button>
+                </div>
+
+                <!-- Right Path: First Choice -->
+                <div class="list-group" id="RPath1" style="display: none">
+                    <button type="button" onclick="RP1_1()" class="list-group-item list-group-item-action">Go Right</button>
+                    <button type="button" onclick="RP1_2()" class="list-group-item list-group-item-action">Go Left</button>
+                    <button type="button" onclick="RP1_3()" class="list-group-item list-group-item-action">Crawl Over</button>
+                    <button type="button" onclick="Run()" class="list-group-item list-group-item-action">Run for Exit</button>
+                </div>
+
+                <!-- Right Path: Second Choice -->
+                <div class="list-group" id="RPath2" style="display: none">
+                    <button type="button" onclick="RP2_1()" class="list-group-item list-group-item-action">Toss Rock at Birds</button>
+                    <button type="button" onclick="RP2_2()" class="list-group-item list-group-item-action">Go Through Birds</button>
+                    <button type="button" onclick="RP2_3()" class="list-group-item list-group-item-action">Try Door to Right</button>
+                    <button type="button" onclick="Run()" class="list-group-item list-group-item-action">Run for Exit</button>
+                </div>
+
+                <!-- Right Path: Third Choice -->
+                <div class="list-group" id="RPath3" style="display: none">
+                    <button type="button" onclick="RP3_1()" class="list-group-item list-group-item-action">Toss Another Rock</button>
+                    <button type="button" onclick="RP3_2()" class="list-group-item list-group-item-action">Do Nothing</button>
+                    <button type="button" onclick="Smash()" class="list-group-item list-group-item-action">Smash the Glass Door</button>
+                </div>
+
+                <!-- Left Path: First Choice -->
+                <div class="list-group" id="LPath1" style="display: none">
+                    <button type="button" onclick="LP1_1()" class="list-group-item list-group-item-action">Under Ruble</button>
+                    <button type="button" onclick="LP1_2()" class="list-group-item list-group-item-action">Over Ruble</button>
+                    <button type="button" onclick="LP1_3()" class="list-group-item list-group-item-action">Around Ruble</button>
+                    <button type="button" onclick="Run()" class="list-group-item list-group-item-action">Run for Exit</button>
+                </div>
+
+                <!-- Left Path: Second Choice -->
+                <div class="list-group" id="LPath2" style="display: none">
+                    <button type="button" onclick="LP2_1()" class="list-group-item list-group-item-action">Toss a Rock Away</button>
+                    <button type="button" onclick="LP2_2()" class="list-group-item list-group-item-action">Yell at it!</button>
+                    <button type="button" onclick="LP2_3()" class="list-group-item list-group-item-action">Do Nothing</button>
+                    <button type="button" onclick="Run()" class="list-group-item list-group-item-action">Run for Exit</button>
+                </div>
+
+                <!-- Left Path: Third Choice -->
+                <div class="list-group" id="LPath3" style="display: none">
+                    <button type="button" onclick="LP3_1()" class="list-group-item list-group-item-action">Toss Rock at Birds</button>
+                    <button type="button" onclick="LP3_2()" class="list-group-item list-group-item-action">Run Through Birds</button>
+                    <button type="button" onclick="Smash()" class="list-group-item list-group-item-action">Smash the Glass Door</button>
+                </div>
+
+                <!-- DEATH Selection -->
+                <div class="list-group" id="restartSelect" style="display: none">
+                    <button class="btn-2" id="exitBtn2"><a class="nav-link" href="home.html">Restart</a></button>
+                </div>
+
+                <!-- Secret Exit Selection -->
+                <div class="list-group" id="secretExit" style="display: none">
+                    <button type="button" onclick="SE1()" class="list-group-item list-group-item-action">Go Back and Leave</button>
+                    <button class="btn-2" type="button" id="exitBtn2"><a class="nav-link" href="area4.html">Head to Main Office</a></button>
+                </div>
+
+                <!-- Real Exit Selection -->
+                <div class="list-group" id="realExit" style="display: none">
+                    <button class="btn-2" type="button" id="exitBtn2"><a class="nav-link" href="area4.html">Head to Main Office</a></button>
+                </div>
+
+            </div>
+
+            <div class="col"><img src="images/a3-2.jpg" class="img-fluid"></div>
+        </div>
+
+        <!-- SECOND ROW OF CONTENT -->
+        <div class="row">
+            <div class="col"><img src="images/a3-3.jpeg" class="img-fluid"></div>
+
+            <div class="col"></div>
+
+            <div class="col"><img src="images/a3-4.jpg" class="img-fluid"></div>
+        </div>
+
+    </div>
+
+    <script>
+        var description = document.getElementById("desc");
+
+        var fails = 0;
+
+        //Start Scripts-----------------------------------
+        function S_R() {
+            description.innerHTML = "You go to the right, but as soon as you move forward you need to stop. In front of you your path is divided by a stone box planter, and down two paths is the floor covered in broken glass from the sky light. The left has far more glass than the right.";
+
+            document.getElementById("Start").style.display = "none";
+            document.getElementById("RPath1").style.display = "block";
+        }
+
+        function S_L() {
+            description.innerHTML = "You go to the left, but are stopped by the rubble of the caved in ceiling. It seems easy enough to crawl over, and there is a way to crawl under it. Or you could go around but you will be awfully close to that monster in the center.";
+
+            document.getElementById("Start").style.display = "none";
+            document.getElementById("LPath1").style.display = "block";
+        }
+
+        function S_C() {
+            description.innerHTML = "You decide to walk right down the center. There is no cover to hide behind and you get to close to it trying to slip by. You were quiet but the monster caught your scent and quickly attacked you.";
+
+            document.getElementById("Start").style.display = "none";
+            restart();
+        }
+
+        //RIGHT PATH SCRIPTS----------------------------------------
+        //RIGHT PATH SELECTION 1------------------------------------
+        function RP1_1() {
+            description.innerHTML = "You take the path with less glass covering the ground. You don't watch your footing close enough and step on some glass making loud cracks before you get by completely. Once across you find your path blocked by some birds that made their way inside through a hole in the ceiling. You can toss a rock or try running through them. There is also a door to your right though you are not quiet sure where it leads, and this seems like the best and only exit.";
+
+            fails++
+            failCounter();
+
+            document.getElementById("RPath1").style.display = "none";
+            document.getElementById("RPath2").style.display = "block";
+        }
+
+        function RP1_2() {
+            description.innerHTML = "You walk over the floor full of shattered glass making as much noise as possible, the monster dog finds you quickly and charges you. The last thing you see is the horrifying set of teeth lunge at you.";
+
+            document.getElementById("RPath1").style.display = "none";
+            restart();
+        }
+
+        function RP1_3() {
+            description.innerHTML = "You crawl over the planter block and slowly make your way to the other side with little to no noise at all. Once across you find your path blocked by some birds that made their way inside through a hole in the ceiling. You can toss a rock or try running through them. There is also a door to your right though you are not quiet sure where it leads, and this seems like the best and only exit.";
+
+            document.getElementById("RPath1").style.display = "none";
+            document.getElementById("RPath2").style.display = "block";
+        }
+
+        //RIGHT PATH SELECTION 2------------------------------------
+        function RP2_1() {
+            description.innerHTML = "You toss a rock on the ground at the plock of birds making them scatter. As you do the monster dog jumps towards where they were. You take the chance to go around it and make your way to the exit. <br><br>Once to the exit you grab the handle and try opening the door to slip out but once you do the door does not budge an inch. 'Oh you actually made it through to the exit?! Well to bad that I have the only terminal that can unlock that door. How about you come see me?' The speaker cuts out then you see the door that was off to the right open slowly on its own.";
+
+            document.getElementById("RPath2").style.display = "none";
+            document.getElementById("RPath3").style.display = "block";
+        }
+
+        function RP2_2() {
+            description.innerHTML = "You walk through the birds making them take off and because of their wings flapping it draws the monster dog run over to you. You stop dead in your tracks as soon as you get by the birds previous position now where the monster is standing. After a few moments you slowly inch to the exit. <br><br>Once to the exit you grab the handle and try opening the door to slip out but once you do the door does not budge an inch. 'Oh you actually made it through to the exit?! Well to bad that I have the only terminal that can unlock that door. How about you come see me?' The speaker cuts out then you see the door that was off to the right open slowly on its own.";
+
+            fails++;
+            failCounter();
+
+            document.getElementById("RPath2").style.display = "none";
+            document.getElementById("RPath3").style.display = "block";
+        }
+
+        //SECRET TO SKIP TO NEXT LEVEL
+        function RP2_3() {
+            description.innerHTML = "You decide to skip the bird issue completely and slip into the door off to your right. Once closed it's a stair case that leads up one level, probably to the previous rooms overview and the head office. You can check it out or head back or check out the place where that mad man most likely is.";
+
+            document.getElementById("RPath2").style.display = "none";
+            document.getElementById("secretExit").style.display = "block";
+        }
+
+        //RIGHT PATH SELECTION 3------------------------------------
+        function RP3_1() {
+            description.innerHTML = "You toss a rock off towards the center of the of the room luring the monster to the sound. Once it starts moving you sneak towards the office door and slip into it. Once you close the door your in a stairwell that leads up one level, probably to the previous rooms overview and the head office.";
+
+            document.getElementById("RPath3").style.display = "none";
+            document.getElementById("realExit").style.display = "block";
+        }
+
+        function RP3_2() {
+            description.innerHTML = "You stand there doing nothing, while you do the monster dog starts sniffing around and it seems like he smelled something.";
+
+            fails++;
+            failCounter();
+
+            document.getElementById("RPath3").style.display = "none";
+            document.getElementById("realExit").style.display = "block";
+        }
+
+        //LEFT PATH SELECTION 1-------------------------------------
+        function LP1_1() {
+            description.innerHTML = "You decide to go under the pile of ruble since there is a small tunnel big enough for you to fit through. As you crawl through the you made a bit to much noise which brought the Monster over to you. It jumped on top of the mountain of ruble and with the sudden weight added the rubles tunnel caved in.";
+
+            document.getElementById("LPath1").style.display = "none";
+            restart();
+        }
+
+        function LP1_2() {
+            description.innerHTML = "You crawl over the ruble but unfortunatly for you as you crawl over it you kick some rocks down making enough noise to get the attention of the Monster. But instead of heading straight for you it moves, almost as if to cut you off it blocks your direct path to the door and is patroling. You need to lure it away.";
+
+            fails++;
+            failCounter();
+
+            document.getElementById("LPath1").style.display = "none";
+            document.getElementById("LPath2").style.display = "block";
+        }
+
+        function LP1_3() {
+            description.innerHTML = "You take the around approach and slowly but surely sneak around the pile of ruble. But as you are passing by the Monster catches a wiff of your scent and begins to follow it. Then almost as if to cut you off it blocks your direct path to the door and is patroling. You need to lure it away.";
+
+            document.getElementById("LPath1").style.display = "none";
+            document.getElementById("LPath2").style.display = "block";
+        }
+
+        //LEFT PATH SELECTION 2-------------------------------------
+        function LP2_1() {
+            description.innerHTML = "You go to grab a rock off the pile of ruble behind you but once you do it cause some other rocks to fall and draw the Monsters attention. It starts to walk towards you so you take the rock in your hand and through it across the room. Which it lands on some broken glass making enough noise to attract the Monsters attention. You begin to walk to the exit door once it moves.  <br><br>Once to the exit you grab the handle and try opening the door to slip out but once you do the door does not budge an inch. 'Oh you actually made it through to the exit?! Well to bad that I have the only terminal that can unlock that door. How about you come see me?' The speaker cuts out then you see the door that was off to the right open slowly on its own.";
+            fails++;
+            failCounter();
+
+            document.getElementById("LPath2").style.display = "none";
+            document.getElementById("LPath3").style.display = "block";
+        }
+
+        function LP2_2() {
+            description.innerHTML = "You get the idea that you just need to puff your chest up and seem like bigger predator in this situation. So you take a deep breath and yell as loud as you can trying to intimidate it into backing down. To bad for you it had the far louder bark and was much bigger then you puffing up your chest.";
+
+            document.getElementById("LPath2").style.display = "none";
+            restart();
+        }
+
+        function LP2_3() {
+            description.innerHTML = "With the monster in your path you think the best thing to do is absolutley nothing. And you were correct the Monster losses interest and slowly walks back to the center of the room. You walk slowly to the door.  <br><br>Once to the exit you grab the handle and try opening the door to slip out but once you do the door does not budge an inch. 'Oh you actually made it through to the exit?! Well to bad that I have the only terminal that can unlock that door. How about you come see me?' The speaker cuts out then you see the door that was off to the right open slowly on its own.";
+
+            document.getElementById("LPath2").style.display = "none";
+            document.getElementById("LPath3").style.display = "block";
+        }
+
+        //LEFT PATH SELECTION 3-------------------------------------
+        function LP3_1() {
+            description.innerHTML = "You toss a rock at the birds but the Monster Dog runs over to where the flock of birds were just at. So taking the chance you head around the Monster while the room is so loud with the wing flapping and walk through the now open door. Once you close the door your in a stairwell that leads up one level, probably to the previous rooms overview and the head office.";
+
+            document.getElementById("LPath3").style.display = "none";
+            document.getElementById("realExit").style.display = "block";
+        }
+
+        function LP3_2() {
+            description.innerHTML = "You ran through the birds heading straight for the door and stiring up the birds.";
+            document.getElementById("LPath3").style.display = "none";
+
+            fails++;
+            failCounter();
+
+            if (fails != 3) {
+                description.innerHTML = description.innerHTML + "<br><br>Due to the Monster not knowing where you were before running you were quick enough in your run to get through the door. Once you close the door your in a stairwell that leads up one level, probably to the previous rooms overview and the head office.";
+                document.getElementById("realExit").style.display = "block";
+            }
+
+        }
+
+        //SECRET EXIT SELECTION------------------------------------
+        function SE1() {
+            description.innerHTML = "You come back out of the stair well and hide behind the stone planter again. You can try going left which is completely covered in glass but is shorter distance to the door, or to the right which has far less glass which you might be able to avoid. Maybe you could also climb over the planter as well.";
+
+            document.getElementById("secretExit").style.display = "none";
+            document.getElementById("RPath1").style.display = "block";
+        }
+
+        //MULTI AREA SCRIPTS-------------------------------------------------- 
+        function Run() {
+            description.innerHTML = "You tried to make a run fro the exit but when you did the Monster attacked you from behind before you could get out the door.";
+
+            document.getElementById("Start").style.display = "none";
+
+            document.getElementById("RPath1").style.display = "none";
+            document.getElementById("RPath2").style.display = "none";
+
+            document.getElementById("LPath1").style.display = "none";
+            document.getElementById("LPath2").style.display = "none";
+            restart();
+        }
+
+        function Smash() {
+            description.innerHTML = "You grabed a rock laying around and with all your strength smashed the glass door. You managed to break it open, but before you could get out the Monster latched onto you.";
+
+            document.getElementById("RPath3").style.display = "none";
+            document.getElementById("LPath3").style.display = "none";
+            restart();
+        }
+
+        function failCounter() {
+            switch (fails) {
+                case 1:
+                    description.innerHTML = description.innerHTML + "<br><br>The Monster Dog is now Alerted of your Presence";
+                    break;
+                case 2:
+                    description.innerHTML = description.innerHTML + "<br><br>The Monster Dog is starting to get closer to catching you, be careful.";
+                    break;
+                case 3:
+                    description.innerHTML = description.innerHTML + "<br><br>The Monster was ready for you to make a mistake and caught you in it's teeth.";
+                    restart();
+                    break;
+            }
+        }
+
+        function restart() {
+            document.getElementById("desc").style.color = "white";
+            document.getElementById("body").style.backgroundColor = "red";
+            document.getElementById("restartSelect").style.display = "block";
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body></html>

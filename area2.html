@@ -14,7 +14,7 @@
 </head>
 
 <body id="body">
-    <h1>AREA 2 - Offices</h1>
+    <h1>Past to Present</h1>
 
     <div class="container">
         <p id="desc">You get to the top of the Lift and walk through the only door. On the other side of the door you find yourself standing in a ruined hallway. There are four office doors, two on each side of the hall and each door seems newer than the last, and one metal door at the end with an exit sign directly above it. You're about to make a mad dash for it when.
@@ -24,7 +24,7 @@
 
         <!-- FIRST ROW OF CONTENT -->
         <div class="row">
-            <div class="col"></div>
+            <div class="col"><img src="images/a2-2.jpg" class="img-fluid"></div>
 
             <div class="col">
                 <!-- CENTER of room selection -->
@@ -36,7 +36,7 @@
                     <button type="button" onclick="clickExit()" class="list-group-item list-group-item-action">EXIT</button>
                 </div>
 
-                <!-- NORTH of room selection -->
+                <!-- FIRST room selection -->
                 <div class="list-group" id="northSelect" style="display: none">
                     <button type="button" onclick="n1()" class="list-group-item list-group-item-action">Look Out Window</button>
                     <button type="button" onclick="n2()" class="list-group-item list-group-item-action">Inspect Desk</button>
@@ -45,7 +45,7 @@
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
                 </div>
 
-                <!-- SOUTH of room selection -->
+                <!-- SECOND room selection -->
                 <div class="list-group" id="southSelect" style="display: none">
                     <button type="button" onclick="s1()" class="list-group-item list-group-item-action">Look Out Window</button>
                     <button type="button" onclick="s2()" class="list-group-item list-group-item-action">Inspect Desk</button>
@@ -54,7 +54,7 @@
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
                 </div>
 
-                <!-- EAST of room selection -->
+                <!-- THIRD room selection -->
                 <div class="list-group" id="eastSelect" style="display: none">
                     <button type="button" onclick="e1()" class="list-group-item list-group-item-action">Look Out Window</button>
                     <button type="button" onclick="e2()" class="list-group-item list-group-item-action">Inspect Desk</button>
@@ -63,7 +63,7 @@
                     <button type="button" onclick="clickCenter()" class="list-group-item list-group-item-action">Hallway</button>
                 </div>
                 
-                <!-- WEST of room selection -->
+                <!-- FOURTH room selection -->
                 <div class="list-group" id="westSelect" style="display: none">
                     <button type="button" onclick="w1()" class="list-group-item list-group-item-action">Look Out Window</button>
                     <button type="button" onclick="w2()" class="list-group-item list-group-item-action">Inspect Desk</button>
@@ -102,16 +102,16 @@
                 </div>
             </div>
 
-            <div class="col"></div>
+            <div class="col"><img src="images/a2-1.jpg" class="img-fluid"></div>
         </div>
 
         <!-- SECOND ROW OF CONTENT -->
         <div class="row">
-            <div class="col"></div>
+            <div class="col"><img src="images/a2-3.jpg" class="img-fluid"></div>
 
             <div class="col"></div>
 
-            <div class="col"></div>
+            <div class="col"><img src="images/a2-4.jpg" class="img-fluid"></div>
         </div>
 
     </div>
@@ -356,7 +356,7 @@
             var keyInput = document.getElementById("keyInput").value;
 
             if (keyInput == digit_1 + "" + digit_2 + "" + digit_3) {
-                description.innerHTML = "SUCCESS";
+                description.innerHTML = "You press submit and you can hear the lock come undone. Maybe you should look around just incase you missed something that could be useful laster.";
                 document.getElementById("exitBtn2").style.display = "block";
                 unlocked = true;
             } else {
@@ -369,7 +369,7 @@
             var keyInput = document.getElementById("compInput").value;
 
             if ("07-16-05") {
-                description.innerHTML = "The computer unlocks and when it unlocks there is a file already open. 'The memory loss is getting worse day by day, I know what treatment is needed for the serum to function properly but the execution of that treatment is part of the issue. Tests are needed to succeed but the way to test it will never be approved. But I will do whatever it takes to complete this, for Alice.' The data the file was last saved was 08-30-06";
+                description.innerHTML = "The computer unlocks and when it unlocks there is a file already open. 'The memory loss is getting worse day by day, I know what treatment is needed for the serum to function properly but the execution of that treatment is part of the issue. Tests are needed to succeed but the way to test it will never be approved. But I will do whatever it takes to complete this, for My Everything, for 'Alice'.' The data the file was last saved was 08-30-06";
                 document.getElementById("compPassword").style.visibility = "hidden";
                 document.getElementById("compPassword").style.height = "0px";
             } else {
